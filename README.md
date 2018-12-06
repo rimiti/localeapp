@@ -1,12 +1,14 @@
 # @rimit/localeapp
 
-Manage your translation files and sync them with Localeapp. If your project uses [Localeapp](https://www.localeapp.com/) to manage locales translation remotely then this tool might come useful.
-
+This package provides some powerful features to manage your translation files and sync them with Localeapp. 
+If your project uses [Localeapp](https://www.localeapp.com/) to manage locales translation remotely then this tool might come useful.
 
 ## Description 
+
 When working with locales through [Localeapp](https://www.localeapp.com/), the files containing translation keys can become extremely large and complex to be easily managed. This tool tries to bring more organization within locales in a project by using folders to separate keys and compile them into a single file that can easily be synchronized with Localeapp.
 
 ### Features
+
 - Compile translation keys from a __folder structure__ source to a single `.yml` file.
 - Synchronise with your __Localeapp__ project
 - Update the source files in the folders when pulling from __Localeapp__.
@@ -166,6 +168,9 @@ The general consensus is that:
 
 You may follow this example as a template for your own project. [Here](/examples) you can see the full example above with the folders and compiled file.
 
+## Credits
+
+This repository was initially a fork from the [louki](https://github.com/Drawbotics/louki) package. 
 
 ## License
 
