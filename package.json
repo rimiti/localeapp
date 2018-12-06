@@ -1,6 +1,6 @@
 {
   "name": "@rimiti/localeapp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "LocaleApp manager",
   "main": "dist/index.js",
   "repository": "https://github.com/rimiti/localeapp.git",
