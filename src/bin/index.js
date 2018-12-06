@@ -7,6 +7,9 @@ import commander from 'commander';
 const conf = {};
 const appCfg = require('rc')('localeapp', conf);
 
+let cmdValue = undefined;
+let optionsValue = undefined;
+
 commander
   .version('1.0.0')
   .arguments('<cmd> [options]')
