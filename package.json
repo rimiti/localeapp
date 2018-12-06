@@ -1,5 +1,5 @@
 {
-  "name": "localeapp",
+  "name": "@rimiti/localeapp",
   "version": "0.0.1",
   "description": "LocaleApp manager",
   "main": "dist/index.js",
@@ -8,8 +8,9 @@
   "license": "MIT",
   "preferGlobal": true,
   "scripts": {
-    "clean": "rm -rf dist",
     "build": "yarn clean && babel ./src -d ./dist",
+    "clean": "rm -rf dist",
+    "prepublish": "yarn test && yarn build",
     "test": "mocha --compilers js:@babel/register --reporter spec ./test ./src"
   },
   "bin": {
