@@ -8,13 +8,13 @@
   "license": "MIT",
   "preferGlobal": true,
   "scripts": {
-    "build": "yarn clean && babel ./src -d ./dist",
+    "build": "yarn clean && babel src -d dist",
     "clean": "rm -rf dist",
     "prepublish": "yarn test && yarn build",
     "test": "mocha --compilers js:@babel/register --reporter spec ./test ./src"
   },
   "bin": {
-    "localeapp": "./dist/bin/localeapp"
+    "localeapp": "./dist/bin/index.js"
   },
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
