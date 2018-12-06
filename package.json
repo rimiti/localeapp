@@ -8,12 +8,9 @@
   "license": "MIT",
   "preferGlobal": true,
   "scripts": {
-    "clean": "rimraf dist",
-    "build:commonjs": "babel src --out-dir dist",
-    "build": "npm run clean && npm run build:commonjs",
-    "build-watch": "npm run clean && npm run build:commonjs -- --watch",
-    "test": "NODE_ENV=test mocha --compilers js:babel-core/register --reporter spec ./test ./src",
-    "mocha": "./node_modules/.bin/mocha"
+    "clean": "rm -rf dist",
+    "build": "yarn clean && babel src --out-dir dist",
+    "test": "mocha --compilers js:babel-core/register --reporter spec test src"
   },
   "bin": {
     "localeapp": "./bin/localeapp"
@@ -25,18 +22,12 @@
     ]
   },
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
     "commander": "^2.9.0",
-    "directory-tree": "^1.2.0",
-    "dotenv": "^4.0.0",
-    "fs": "^0.0.1-security",
     "js-yaml": "^3.8.2",
     "lodash": "^4.17.4",
     "node-watch": "^0.5.5",
     "rc": "^1.1.7",
     "request": "^2.81.0",
-    "rimraf": "^2.6.1",
-    "shelljs": "^0.7.7",
     "user-home": "^2.0.0"
   },
   "devDependencies": {
