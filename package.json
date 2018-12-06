@@ -9,11 +9,11 @@
   "preferGlobal": true,
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "yarn clean && babel src --out-dir dist",
+    "build": "yarn clean && babel --source-maps inline src -d dist",
     "test": "mocha --compilers js:babel-core/register --reporter spec test src"
   },
   "bin": {
-    "localeapp": "./bin/localeapp"
+    "localeapp": "./dist/bin/localeapp"
   },
   "babel": {
     "presets": [
