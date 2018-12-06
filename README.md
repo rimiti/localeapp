@@ -1,5 +1,7 @@
 # @rimit/localeapp
 
+[![Build Status](https://travis-ci.org/rimiti/localeapp.svg?branch=master)](https://travis-ci.org/rimiti/localeapp)
+
 This package provides some powerful features to manage your translation files and sync them with Localeapp. 
 If your project uses [Localeapp](https://www.localeapp.com/) to manage locales translation remotely then this tool might come useful.
 
