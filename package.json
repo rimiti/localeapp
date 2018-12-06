@@ -11,7 +11,7 @@
     "build": "yarn clean && babel src -d dist",
     "clean": "rm -rf dist",
     "prepublish": "yarn test && yarn build",
-    "test": "mocha --compilers js:@babel/register --reporter spec ./test ./src"
+    "test": "mocha --require @babel/register --reporter spec ./test ./src"
   },
   "bin": {
     "localeapp": "./dist/bin/index.js"
