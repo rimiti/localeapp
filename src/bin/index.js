@@ -1,13 +1,13 @@
 #! /usr/bin/env node
 
-const localeapp = require('../dist/index.js').default;
-const program = require('commander');
-const path = require('path');
+import path from 'path';
+import localeapp from '..';
+import commander from 'commander';
 
 const conf = {};
 const appCfg = require('rc')('localeapp', conf);
 
-program
+commander
   .version('1.0.0')
   .arguments('<cmd> [options]')
   .action(function (cmd, options) {
@@ -15,30 +15,30 @@ program
     optionsValue = options;
   });
 
-program
+commander
   .command('init')
   .description('To initialise localeapp with the localeapp secret key. Required argument: secret_key.');
 
-program
+commander
   .command('update')
   .description('To update the compiled default locale (without pushing)');
 
-program
+commander
   .command('push')
   .description('To push to localeapp using the bash command??');
 
-program
+commander
   .command('pull')
   .description('To pull from localeapp and update all files (compiled and src)');
 
-program
+commander
   .option('-w, --watch', 'Watch files (calls update on changes)');
 
 
-program
+commander
   .option('-r, --raw', 'Pull without rebuilding sources');
 
-program.parse(process.argv);
+commander.parse(process.argv);
 
 
 if (typeof cmdValue === 'undefined') {
@@ -78,8 +78,8 @@ else {
   const sourcePath = rootPath + '/' + localeSource;
   const extra = {
     pushDefault: optionsValue == defaultLocale,
-    watchFiles: program.watch,
-    raw: program.raw,
+    watchFiles: commander.watch,
+    raw: commander.raw,
   };
 
   localeapp(cmdValue, sourcePath, targetPath, optionsValue || defaultLocale, extra);
