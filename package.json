@@ -1,0 +1,51 @@
+{
+  "name": "localeapp",
+  "version": "1.0.0",
+  "description": "LocaleApp manager",
+  "main": "dist/index.js",
+  "repository": "https://github.com/rimiti/localeapp.git",
+  "author": "dimitri.dobairro@dimsolution.com",
+  "license": "MIT",
+  "preferGlobal": true,
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:commonjs": "babel src --out-dir dist",
+    "build": "npm run clean && npm run build:commonjs",
+    "build-watch": "npm run clean && npm run build:commonjs -- --watch",
+    "test": "NODE_ENV=test mocha --compilers js:babel-core/register --reporter spec ./test ./src",
+    "mocha": "./node_modules/.bin/mocha"
+  },
+  "bin": {
+    "localeapp": "./bin/localeapp"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "commander": "^2.9.0",
+    "directory-tree": "^1.2.0",
+    "dotenv": "^4.0.0",
+    "fs": "^0.0.1-security",
+    "js-yaml": "^3.8.2",
+    "lodash": "^4.17.4",
+    "node-watch": "^0.5.5",
+    "rc": "^1.1.7",
+    "request": "^2.81.0",
+    "rimraf": "^2.6.1",
+    "shelljs": "^0.7.7",
+    "user-home": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
