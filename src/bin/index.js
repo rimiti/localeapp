@@ -64,11 +64,23 @@ else {
   let localeSource = appCfg.source;
   let defaultLocale = appCfg.default;
 
+  if (cmdValue === 'init' && (!optionsValue || !process.env.LOCALEAPP_KEY)) {
+    console.log('into the condition');
+    // process.exit();
+  }
 
-  if (cmdValue === 'init' && ! optionsValue) {
+  if (cmdValue === 'init' && !optionsValue) {
+    console.log(optionsValue);
     console.error('Localeapp key not specified.');
     process.exit();
   }
+
+
+  // if (cmdValue === 'init' && (!optionsValue || !process.env.LOCALEAPP_KEY)) {
+  //   console.log(optionsValue);
+  //   console.error('Localeapp key not specified.');
+  //   process.exit();
+  // }
 
   if (typeof localeTarget === 'undefined'
     || typeof localeSource === 'undefined'
