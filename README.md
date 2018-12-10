@@ -19,21 +19,21 @@ When working with locales through [Localeapp](https://www.localeapp.com/), the f
 
 This package is most useful when installed globally, as CLI commands can just be ran through `localeapp [cmd]`, however it can be installed locally by project if necessary. Install `localeapp` locally if you already have `node` dependencies in your project:
 
- ```
- npm install @rimiti/localeapp
+ ```sh
+ $ npm install @rimiti/localeapp
  ```
  or
- ```
- yarn add @rimiti/localeapp
+ ```sh
+ $ yarn add @rimiti/localeapp
  ```
 
  If you don't have `node` dependencies but still wish to use this package you can install it globally through
- ```
- npm install -g @rimiti/localeapp
+ ```sh
+ $ npm install -g @rimiti/localeapp
  ```
  or
- ```
- yarn global add @rimiti/localeapp
+ ```sh
+ $ yarn global add @rimiti/localeapp
  ```
 
 ## How to use it?
@@ -54,11 +54,22 @@ Create a `.localeapprc` file where all the paths and locale information for the 
 
 Where `target` is the path to the folder where your compiled translation keys file will be written, `source` is the root of your folder structure and `default` is the default language of your locales. `target` is also where all the locale files will be written to when pulling from Localeapp. In this example all local translation keys are in English, and the generated file (in `/locales`) is `en.yml`. It is this file that is then synchronised with Localeapp. The default locale should match the one in your remote  Localeapp project.
 
-To enable syncinc between localeapp and the local files (with push and pull) you have to first initialise localeapp with the localeapp project key with
+To enable syncinc between localeapp and the local files (with push and pull) you have to first initialise localeapp with the localeapp project key with:
 
+
+#### If you want to use environment variable (recommended)
+
+```sh
+$ export LOCALEAPP_KEY=<your Localeapp key>
+$ yarn @rimiti/localeapp init
 ```
-yarn @rimiti/localeapp init <your Localeapp key> 
+
+#### If you want to pass your key as cli argument (not recommended)
+
+```sh
+$ yarn @rimiti/localeapp init <your Localeapp key> 
 ```
+
 The key can be found in `Settings/API Key` in Localeapp. This file is not commited to it will stay secret in your local environment. The key will be used to synchronise your files with the remote project.
 
 ### Commands
@@ -71,16 +82,16 @@ There are 3 commands available:
 
 If you installed the package globally you have access to the CLI everywhere, thus you can run:
 
-```
-localeapp <cmd>
+```sh
+$ localeapp <cmd>
 ```
 
 directly within the root folder of your project. Thus for the above commands you would have:
 
-```
-localeapp update
-localeapp push
-localeapp pull
+```sh
+$ localeapp update
+$ localeapp push
+$ localeapp pull
 ```
 
 Were you to install `localeapp` locally you will need to call `npx localeapp update` or better, `yarn localeapp update`.
@@ -89,20 +100,20 @@ Were you to install `localeapp` locally you will need to call `npx localeapp upd
 
 #### Options
 
-```
-localeapp push [locale]
+```sh
+$ localeapp push [locale]
 ```
 
 This option allows you to push a particular locale to the remote Localeapp project. Can be useful when pushing existing non-default translations to Localeapp. E.g. `localeapp push fr` will push the `fr.yml` file.
 
-```
-localeapp update --watch
+```sh
+$ localeapp update --watch
 ```
 The `--watch` flag (also available as `-w`) will enable watching on all files living in the defined source folder (see [Setup](#setup)), and will call the `update` function on every change.
 
-```
-localeapp pull --raw
-localeapp push --raw
+```sh
+$ localeapp pull --raw
+$ localeapp push --raw
 ```
 
 The `--raw` flag will skip building sources when pulling from Localeapp. This is available in case you are using localeapp simply to communicate with the remote project, and the source folders feature is not used.
