@@ -54,8 +54,6 @@ function writeConfig(fd, keys) {
   });
 }
 
-
-
 /**
  * @description Pull translations.
  * @param rootFolder
