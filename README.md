@@ -19,22 +19,22 @@ When working with locales through [Localeapp](https://www.localeapp.com/), the f
 
 This package is most useful when installed globally, as CLI commands can just be ran through `localeapp [cmd]`, however it can be installed locally by project if necessary. Install `localeapp` locally if you already have `node` dependencies in your project:
 
- ```sh
- $ npm install @rimiti/localeapp
- ```
- or
- ```sh
- $ yarn add @rimiti/localeapp
- ```
+```sh
+$ npm install @rimiti/localeapp
+```
+or
+```sh
+$ yarn add @rimiti/localeapp
+```
 
- If you don't have `node` dependencies but still wish to use this package you can install it globally through
- ```sh
- $ npm install -g @rimiti/localeapp
- ```
- or
- ```sh
- $ yarn global add @rimiti/localeapp
- ```
+If you don't have `node` dependencies but still wish to use this package you can install it globally through
+```sh
+$ npm install -g @rimiti/localeapp
+```
+or
+```sh
+$ yarn global add @rimiti/localeapp
+```
 
 ## How to use it?
 
@@ -61,13 +61,13 @@ To enable syncinc between localeapp and the local files (with push and pull) you
 
 ```sh
 $ export LOCALEAPP_KEY=<your Localeapp key>
-$ yarn @rimiti/localeapp init
+$ yarn localeapp init
 ```
 
 #### If you want to pass your key as cli argument (not recommended)
 
 ```sh
-$ yarn @rimiti/localeapp init <your Localeapp key> 
+$ yarn localeapp init <your Localeapp key> 
 ```
 
 The key can be found in `Settings/API Key` in Localeapp. This file is not commited to it will stay secret in your local environment. The key will be used to synchronise your files with the remote project.
