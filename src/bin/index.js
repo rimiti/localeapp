@@ -47,13 +47,10 @@ commander.parse(process.argv);
 if (typeof cmdValue === 'undefined') {
   console.error('no command given!');
   process.exit();
-}
-
-else if (! ['update', 'push', 'pull', 'init'].includes(cmdValue)) {
+} else if (! ['update', 'push', 'pull', 'init'].includes(cmdValue)) {
   console.error('Command not supported or recognised');
   process.exit();
-}
-else {
+} else {
   if (typeof appCfg.config === 'undefined') {
     console.error('no config file found!');
     process.exit(1);
@@ -64,10 +61,15 @@ else {
   let localeSource = appCfg.source;
   let defaultLocale = appCfg.default;
 
+  if (cmdValue === 'init') {
+    if(!optionsValue && !process.env.LOCALEAPP_KEY) {
+      console.error('Localeapp key not specified.');
+      process.exit();
+    }
 
-  if (cmdValue === 'init' && ! optionsValue) {
-    console.error('Localeapp key not specified.');
-    process.exit();
+    if(!optionsValue && process.env.LOCALEAPP_KEY) {
+      optionsValue = process.env.LOCALEAPP_KEY
+    }
   }
 
   if (typeof localeTarget === 'undefined'
