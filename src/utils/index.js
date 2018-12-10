@@ -12,7 +12,7 @@ export toFolders from './to-folders';
  */
 export function getConfigPath(create=false) {
   const home = require('user-home');
-  const directory = `${home}/.louki`;
+  const directory = `${home}/.localeapp`;
   if (!fs.existsSync(directory) && create) {
     fs.mkdirSync(directory);
   }
