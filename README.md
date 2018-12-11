@@ -42,7 +42,9 @@ $ yarn global add @rimiti/localeapp
 
 To start using `localeapp` there is a minimal set up that needs to be taken care of first.
 
-Create a `.localeapprc` file where all the paths and locale information for the `localeapp` commands is specified. A normal usage set up file looks like this
+Create a `.localeapprc` file where all the paths and locale information for the `localeapp` commands is specified. A normal usage set up file looks like this:
+
+#### If you want to use simple path definition
 
 ```json
 {
@@ -50,6 +52,34 @@ Create a `.localeapprc` file where all the paths and locale information for the 
   "source": "locales/src",
   "default": "en"
 }
+```
+
+#### If you want to create dynamic paths
+
+```
+{
+  "target": "locales/{{locale}}",
+  "source": "locales/{{locale}}",
+  "default": "en"
+}
+```
+
+The `{{locale}}` (or `{{ locale }}`) variable is automatically replaced by the locale. This option can be really useful if you need to create paths with the bellow structure:
+
+```
+src
+│
+├── locales/
+│   ├── en/
+│   │   └── en.yml
+│   ├── fr/
+│   │   └── fr.yml
+│   ├── pt/
+│   │   └── pt.yml
+│   ├── es/
+│   │   └── es.yml
+│   └── index.js
+│
 ```
 
 Where `target` is the path to the folder where your compiled translation keys file will be written, `source` is the root of your folder structure and `default` is the default language of your locales. `target` is also where all the locale files will be written to when pulling from Localeapp. In this example all local translation keys are in English, and the generated file (in `/locales`) is `en.yml`. It is this file that is then synchronised with Localeapp. The default locale should match the one in your remote  Localeapp project.
