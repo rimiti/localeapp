@@ -104,12 +104,11 @@ export function push(rootFolder, targetPath, locale, pushDefault, raw=false) {
 
   try {
     const localeappKey = JSON.parse(fs.readFileSync(getConfigPath(), 'utf8'))[getProjectName()];
+    localeReplacer.map((item) => targetPath = targetPath.replace(item, locale));
     const filePath = `${targetPath}/${locale}.yml`;
     const data = fs.createReadStream(filePath);
     return localeappPush(localeappKey, data)
-      .then(() => {
-        console.log(`Successfully pushed ${locale}.yml to Localeapp`);
-      })
+      .then(() => console.log(`Successfully pushed ${locale}.yml to Localeapp`))
       .catch((err) => console.error(err));
   }
   catch (err) {
