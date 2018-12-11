@@ -5,6 +5,8 @@ export * from './convert';
 export fromFolders from './from-folders';
 export toFolders from './to-folders';
 
+export const localeReplacer = ['{{locale}}', '{{ locale }}'];
+
 /**
  * @description Returns config path.
  * @param create
@@ -12,7 +14,7 @@ export toFolders from './to-folders';
  */
 export function getConfigPath(create=false) {
   const home = require('user-home');
-  const directory = `${home}/.louki`;
+  const directory = `${home}/.localeapp`;
   if (!fs.existsSync(directory) && create) {
     fs.mkdirSync(directory);
   }
@@ -31,4 +33,19 @@ export function getProjectName() {
     process.exit();
   }
   return name;
+}
+
+/**
+ * @description Create folder and file.
+ * @param path
+ * @param locale
+ * @param content
+ */
+export function createFile(path, locale, content) {
+  let pathTmp = path;
+  localeReplacer.map((item) => pathTmp = pathTmp.replace(item, locale));
+  if (!fs.existsSync(pathTmp)) {
+    fs.mkdirSync(pathTmp);
+  }
+  fs.writeFileSync(`${pathTmp}/${locale}.yml`, content);
 }
