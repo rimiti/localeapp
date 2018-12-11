@@ -7,7 +7,8 @@ import {
   ymlToJson,
   jsonToYml,
   toFolders,
-  fromFolders
+  fromFolders,
+  createFile,
 } from './utils';
 
 /**
@@ -72,7 +73,7 @@ export function pull(rootFolder, targetPath, locale, raw=false) {
       console.log(`Successfully pulled locales ${Object.keys(localesArray).join(', ')} from Localeapp`);
       Object.entries(localesArray).map((l) => {
         const ymlLocale = jsonToYml({ [l[0]]: l[1] });
-        fs.writeFileSync(`${targetPath}/${l[0]}.yml`, ymlLocale);
+        createFile(targetPath, l[0], ymlLocale);
       });
       if (raw) return {};
       const compiledLocale = fs.readFileSync(`${targetPath}/${locale}.yml`, 'utf8');
@@ -85,7 +86,6 @@ export function pull(rootFolder, targetPath, locale, raw=false) {
     console.error('No localeapp project key found! Please specify one with the init command');
   }
 }
-
 
 /**
  * @description Push translations.
