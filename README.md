@@ -54,6 +54,20 @@ Create a `.localeapprc` file where all the paths and locale information for the 
 }
 ```
 
+It will generate the bellow folder structure:
+
+```
+src
+│
+├── locales/
+│   ├── en.yml
+│   ├── fr.yml
+│   ├── pt.yml
+│   ├── es.yml
+│   └── index.js
+│
+```
+
 #### If you want to create dynamic paths
 
 ```
