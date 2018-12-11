@@ -49,7 +49,7 @@ Create a `.localeapprc` file where all the paths and locale information for the 
 ```json
 {
   "target": "locales",
-  "source": "locales/src",
+  "source": "locales",
   "default": "en"
 }
 ```
