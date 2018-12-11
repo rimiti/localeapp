@@ -32,3 +32,18 @@ export function getProjectName() {
   }
   return name;
 }
+
+/**
+ * @description Create folder and file.
+ * @param path
+ * @param locale
+ * @param content
+ */
+export function createFile(path, locale, content) {
+  let pathTmp = path;
+  ['{{locale}}', '{{ locale }}'].map((item) => pathTmp = pathTmp.replace(item, locale));
+  if (!fs.existsSync(pathTmp)) {
+    fs.mkdirSync(pathTmp);
+  }
+  fs.writeFileSync(`${pathTmp}/${locale}.yml`, content);
+}
