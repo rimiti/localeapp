@@ -1,4 +1,4 @@
-# @rimiti/localeapp
+# localeapp
 
 [![Build Status](https://travis-ci.org/rimiti/localeapp.svg?branch=master)](https://travis-ci.org/rimiti/localeapp)
 
